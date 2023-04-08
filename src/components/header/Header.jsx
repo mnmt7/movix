@@ -1,0 +1,108 @@
+import React, { useState, useEffect } from "react";
+import { HiOutlineSearch } from "react-icons/hi";
+import { SlMenu } from "react-icons/sl";
+import { VscChromeClose } from "react-icons/vsc";
+import { useNavigate, useLocation } from "react-router-dom";
+
+import "./style.css";
+
+import logo from "../../assets/movix-logo.svg";
+
+const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+  const [search, setSearch] = useState("");
+  const [showSearchBar, setShowSearchBar] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [showHeader, setShowHeader] = useState(true);
+  console.log(window.scrollY);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log("location ", location);
+
+  const navigationHelper = (type) => {
+    navigate(`/explore/${type}`);
+    setShowMenu(false);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        if (window.scrollY > scrollY) {
+          console.log("+--> ", scrollY);
+          setShowHeader(false);
+        } else {
+          setShowHeader(true);
+        }
+        setScrollY(window.scrollY);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return (
+    <header className={"header" + (showHeader ? "" : " swipe-and-hide")}>
+      <div className="header-container">
+        <img src={logo} alt="logo" onClick={() => navigate("/")} />
+
+        <div className="header-btns">
+          <ul className={"menu" + (showMenu ? "" : " hide")}>
+            <li className="menu-item" onClick={() => navigationHelper("movie")}>
+              Movies
+            </li>
+            <li className="menu-item" onClick={() => navigationHelper("tv")}>
+              TV Shows
+            </li>
+          </ul>
+          <HiOutlineSearch
+            onClick={() => {
+              setShowSearchBar(!showSearchBar);
+              setShowMenu(false);
+            }}
+          />
+          <div className="menu-btn">
+            {showMenu ? (
+              <VscChromeClose onClick={() => setShowMenu(!showMenu)} />
+            ) : (
+              <SlMenu
+                onClick={() => {
+                  setShowMenu(!showMenu);
+                  setShowSearchBar(false);
+                }}
+              />
+            )}
+          </div>
+
+          {showSearchBar && (
+            <div className="search">
+              <input
+                className="search-bar"
+                type="text"
+                placeholder="Search for a movie or tv show..."
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                // onKeyUp={handleEnterSearch}
+              />
+              <VscChromeClose
+                className="closeIcon"
+                onClick={() => {
+                  setShowSearchBar(!showSearchBar);
+                  setShowMenu(false);
+                }}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
