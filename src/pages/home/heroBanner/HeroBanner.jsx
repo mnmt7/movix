@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import "./style.css";
+import Img from "../../../components/lazyLoadImage/Img";
 
 const HeroBanner = () => {
   const [background, setBackground] = useState("");
@@ -17,8 +18,6 @@ const HeroBanner = () => {
   };
 
   const data = useFetch("/movie/upcoming");
-  console.log(data);
-  console.log(url.backdrop);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * 20);
@@ -28,7 +27,7 @@ const HeroBanner = () => {
 
   return (
     <div className="hero-banner">
-      <img className="hero-img" src={background} />
+      <Img src={background || ""} />
       <div className="hero-content">
         <span className="hero-welcome">Welcome.</span>
         <span className="hero-description">

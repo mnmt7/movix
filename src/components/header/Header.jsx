@@ -15,12 +15,9 @@ const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [showHeader, setShowHeader] = useState(true);
-  console.log(window.scrollY);
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  console.log("location ", location);
 
   const navigationHelper = (type) => {
     navigate(`/explore/${type}`);
@@ -31,7 +28,6 @@ const Header = () => {
     const handleScroll = () => {
       if (window.scrollY > 200) {
         if (window.scrollY > scrollY) {
-          console.log("+--> ", scrollY);
           setShowHeader(false);
         } else {
           setShowHeader(true);
