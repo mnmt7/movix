@@ -11,7 +11,7 @@ const Trending = () => {
 
   const [endpoint, setEndpoint] = useState("day");
 
-  const {data} = useFetch(`trending/movie/${endpoint}`);
+  const data = useFetch(`/trending/movie/${endpoint}`);
 
   const [selectedOption, setSelectedOption] = useState("Day");
 
@@ -25,7 +25,7 @@ const Trending = () => {
           <div className="carousel-title">Trending</div>
           <SwitchTabs data={options} selectedOption={selectedOption} />
         </div>
-        {/* <Carousel /> */}
+        <Carousel data={data?.results} onTabChange={onTabChange} />
       </ContentWrapper>
     </>
   );
