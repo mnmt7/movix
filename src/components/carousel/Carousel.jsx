@@ -12,10 +12,10 @@ import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
 
 import "./style.css";
+import CircleRating from "../circleRating/CircleRating";
 
 const Carousel = ({ data }) => {
   const carouselContainer = useRef();
-  console.log(data);
 
   const { url } = useSelector((state) => state.home);
 
@@ -24,8 +24,8 @@ const Carousel = ({ data }) => {
 
     const scrollAmount =
       dir === "left"
-        ? container.scrollLeft - (container.offsetWidth)
-        : container.scrollLeft + (container.offsetWidth);
+        ? container.scrollLeft - container.offsetWidth
+        : container.scrollLeft + container.offsetWidth;
 
     container.scrollTo({
       left: scrollAmount,
@@ -62,9 +62,12 @@ const Carousel = ({ data }) => {
             <div className="carousel-item" key={item.id}>
               <div className="carousel-image">
                 <Img src={src} />
+                <CircleRating rating={item.vote_average.toFixed(1)} />
               </div>
-              <div className="title">{item.title}</div>
-              <div className="date">{dayjs(item.release_date).format("MMM D, YYYY")}</div>
+              <div className="title">{item.title || item.name}</div>
+              <div className="date">
+                {dayjs(item.release_date).format("MMM D, YYYY")}
+              </div>
             </div>
           );
         })}

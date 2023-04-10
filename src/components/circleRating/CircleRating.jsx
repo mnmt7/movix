@@ -1,10 +1,20 @@
-import React from 'react'
-import "./style.css"
+import React from "react";
+import "./style.css";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
-const CircleRating = () => {
+const CircleRating = ({ rating }) => {
   return (
-    <div>CircleRating</div>
-  )
-}
+    <div className="circular-rating">
+      <CircularProgressbar
+        value={rating}
+        maxValue={10}
+        text={rating}
+        styles={buildStyles({
+          pathColor: rating < 5 ? "red" : rating < 7 ? "orange" : "green",
+        })}
+      />
+    </div>
+  );
+};
 
-export default CircleRating
+export default CircleRating;

@@ -7,19 +7,21 @@
     /* flex-wrap: wrap; */
     justify-content: space-between;
     gap: 0.72rem;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 .carousel-item {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 10rem;
-    /* border: 1px solid red; */
 }
 
 .carousel-image {
-    border-radius: 1rem;
-    overflow-y: hidden;
+    /* border-radius: 1rem;
+    overflow-y: hidden; */
+    aspect-ratio: 1 / 1.5;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .left-arrow,
@@ -47,9 +49,40 @@
 }
 
 .title {
-    font-size: 1.2rem;;
+    font-size: 1.2rem;
+    max-width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .date {
     color: rgba(0, 0, 0, 0.733);
+}
+
+.circular-rating {
+    position: absolute;
+    width: 2.5rem;
+    font-size: 3rem;
+    left: 5%;
+    bottom: 0;
+    transform: translateY(50%);
+}
+
+.carousel-image .lazy-load-image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+
+}
+
+.carousel-image .lazy-load-image-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
