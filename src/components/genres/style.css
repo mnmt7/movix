@@ -1,0 +1,7 @@
+.genres-container {
+    position: absolute;
+    color: white;
+    background-color: black;
+    right: 0;
+    bottom: 12px;
+}

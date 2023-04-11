@@ -7,7 +7,7 @@
     /* flex-wrap: wrap; */
     justify-content: space-between;
     gap: 0.72rem;
-    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 .carousel-item {
@@ -60,7 +60,7 @@
     color: rgba(0, 0, 0, 0.733);
 }
 
-.circular-rating {
+.carousel-image .circle-rating {
     position: absolute;
     width: 2.5rem;
     font-size: 3rem;
@@ -69,20 +69,26 @@
     transform: translateY(50%);
 }
 
+.carousel-image .circle-rating .CircularProgressbar-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    transform: translateX(-25%) translateY(10%);
+}
+
 .carousel-image .lazy-load-image-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+    /* width: 100%; */
+    /* height: 100%; */
     border-radius: 12px;
     overflow: hidden;
 
 }
 
 .carousel-image .lazy-load-image-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* object-fit: cover; */
+    /* object-position: center; */
 }

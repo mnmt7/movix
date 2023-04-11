@@ -21,10 +21,6 @@ const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [left, setLeft] = useState(0);
 
-  // const onTabChange = () => {
-  //   console.log("dummy onTabChange");
-  // };
-
   const activeTab = (tab, index) => {
     setLeft(index * 60);
     setTimeout(() => {

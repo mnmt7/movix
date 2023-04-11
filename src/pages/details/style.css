@@ -1,0 +1,8 @@
+.genresContainer {
+    border: 1px solid red;
+
+    /* width: 100px;
+    aspect-ratio: 1; */
+
+    z-index: 999;
+}

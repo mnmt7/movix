@@ -9,6 +9,7 @@ import Home from "./pages/home/Home";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Details from "./pages/details/Details";
 
 function App() {
   const url = useSelector((state) => state.home.url);
@@ -39,10 +40,10 @@ function App() {
 
     const genres = {};
     genresTv.map((genre) => {
-      genres[genre.id] = genre.name;
+      genres[genre.id] = genre?.name;
     });
     genresMovie.map((genre) => {
-      genres[genre.id] = genre.name;
+      genres[genre.id] = genre?.name;
     });
 
     dispatch(getGenres(genres));
@@ -54,6 +55,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search/:query" element={<Home />} />
+        <Route path="/:mediaType/:id" element={<Details />} />
       </Routes>
       <Footer />
     </BrowserRouter>

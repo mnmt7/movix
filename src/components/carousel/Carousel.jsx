@@ -13,9 +13,11 @@ import PosterFallback from "../../assets/no-poster.png";
 
 import "./style.css";
 import CircleRating from "../circleRating/CircleRating";
+import Genres from "../genres/Genres";
 
-const Carousel = ({ data }) => {
+const Carousel = ({ data, endpoint }) => {
   const carouselContainer = useRef();
+  const navigate = useNavigate();
 
   const { url } = useSelector((state) => state.home);
 
@@ -59,10 +61,17 @@ const Carousel = ({ data }) => {
             ? url.poster + item.poster_path
             : PosterFallback;
           return (
-            <div className="carousel-item" key={item.id}>
+            <div
+              className="carousel-item"
+              key={item.id}
+              onClick={() =>
+                navigate(`/${item.media_type || endpoint}/${item.id}`)
+              }
+            >
               <div className="carousel-image">
                 <Img src={src} />
                 <CircleRating rating={item.vote_average.toFixed(1)} />
+                <Genres genreIds={item.genre_ids.slice(0, 2)} />
               </div>
               <div className="title">{item.title || item.name}</div>
               <div className="date">

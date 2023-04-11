@@ -1,0 +1,8 @@
+.carousel-section {
+    margin: 1rem 0;
+}
+.carousel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
