@@ -1,71 +1,140 @@
-.poster-img {
-    padding: 15px;
-}
+// .poster-img {
+//     padding: 15px;
+// }
 
-.poster-img .lazy-load-image-background {
-    overflow: hidden;
-    border-radius: 12px;
-}
+// .poster-img .lazy-load-image-background {
+//     overflow: hidden;
+//     border-radius: 12px;
+// }
 
-.details-banner .genres-container {
-    position: static;
-    background-color: white;
-    color: black;
-}
+// .details-banner .genres-container {
+//     position: static;
+//     background-color: white;
+//     color: black;
+// }
 
-.details-banner .circle-rating {
-    width: 3.5rem;
-}
+// .details-banner .circle-rating {
+//     width: 3.5rem;
+// }
 
-.details-banner .circle-rating .CircularProgressbar {
-    font-size: 2rem;
-}
+// .details-banner .circle-rating .CircularProgressbar {
+//     font-size: 2rem;
+// }
 
-.details-banner .circle-rating .CircularProgressbar .CircularProgressbar-text {
-    transform: translate(-13px, 10px);
-}
+// .details-banner .circle-rating .CircularProgressbar .CircularProgressbar-text {
+//     transform: translate(-13px, 10px);
+// }
 
 .playbtn {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    cursor: pointer;
-    svg {
-        width: 60px;
-        // @include md {
-        //     width: 80px;
-        // }
-    }
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  svg {
+    width: 60px;
+    // @include md {
+    //     width: 80px;
+    // }
+  }
+  .text {
+    font-size: 20px;
+    transition: all 0.7s ease-in-out;
+  }
+  .triangle {
+    stroke-dasharray: 240;
+    stroke-dashoffset: 480;
+    stroke: white;
+    transform: translateY(0);
+    transition: all 0.7s ease-in-out;
+  }
+  .circle {
+    stroke: white;
+    stroke-dasharray: 650;
+    stroke-dashoffset: 1300;
+    transition: all 0.5s ease-in-out;
+  }
+  &:hover {
     .text {
-        font-size: 20px;
-        transition: all 0.7s ease-in-out;
+      color: #da2f68;
     }
     .triangle {
-        stroke-dasharray: 240;
-        stroke-dashoffset: 480;
-        stroke: white;
-        transform: translateY(0);
-        transition: all 0.7s ease-in-out;
+      stroke-dashoffset: 0;
+      opacity: 1;
+      stroke: #da2f68;
+      animation: trailorPlay 0.7s ease-in-out;
     }
     .circle {
-        stroke: white;
-        stroke-dasharray: 650;
-        stroke-dashoffset: 1300;
-        transition: all 0.5s ease-in-out;
+      stroke-dashoffset: 0;
+      stroke: #da2f68;
     }
-    &:hover {
-        .text {
-            color: var(--pink);
-        }
-        .triangle {
-            stroke-dashoffset: 0;
-            opacity: 1;
-            stroke: var(--pink);
-            animation: trailorPlay 0.7s ease-in-out;
-        }
-        .circle {
-            stroke-dashoffset: 0;
-            stroke: var(--pink);
-        }
-    }
+  }
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.1;
+}
+
+.bg-img .lazy-load-image-background {
+  height: 100%;
+  width: 100%;
+}
+
+.bg-img .lazy-load-image-background img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 70%;
+  border: 1px solid red;
+}
+
+.poster-img {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.poster-img .lazy-load-image-background img {
+  border-radius: 10px;
+}
+
+.details-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: #ffffff71;
+  font-style: italic;
+  margin-bottom: 0.9rem;
+}
+.details .genres-container {
+  position: static;
+  margin-bottom: 1.2rem;
+}
+
+.details .circle-rating {
+  width: 4.5rem;
+  background-color: #04152d;
+  font-size: 2rem;
+}
+
+.details .circle-rating .CircularProgressbar-text {
+  fill: white;
+  transform: translate(-20%, 10%);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info {
+  display: flex;
+  gap: 1rem;
 }

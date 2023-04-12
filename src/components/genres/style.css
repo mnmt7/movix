@@ -1,7 +1,19 @@
 .genres-container {
     position: absolute;
-    color: white;
-    background-color: black;
     right: 0;
     bottom: 12px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 50%
+
+}
+
+.genre {
+    background-color: #da2f68;
+    border-radius: 4px;
+    padding: 1.5px 3px;
+    font-size: 0.75rem;
+    white-space: nowrap;
 }

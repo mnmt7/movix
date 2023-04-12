@@ -7,6 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./style.css";
 
 import logo from "../../assets/movix-logo.svg";
+import Img from "../lazyLoadImage/Img";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -46,32 +47,47 @@ const Header = () => {
   return (
     <header className={"header" + (showHeader ? "" : " swipe-and-hide")}>
       <div className={"header-container" + (showMenu ? " dark-bg-color" : "")}>
-        <img src={logo} alt="logo" onClick={() => navigate("/")} />
+        <div onClick={() => navigate("/")} className="pointer">
+          <Img src={logo} />
+        </div>
 
-        <div className="header-btns non-mobile">
+        <div className="header-btns">
           <ul className={"header-menu" + (showMenu ? "" : " hide")}>
-            <li className="header-menu-item" onClick={() => navigationHelper("movie")}>
+            <li
+              className="header-menu-item"
+              onClick={() => navigationHelper("movie")}
+            >
               Movies
             </li>
-            <li className="header-menu-item" onClick={() => navigationHelper("tv")}>
+            <li
+              className="header-menu-item"
+              onClick={() => navigationHelper("tv")}
+            >
               TV Shows
             </li>
           </ul>
-          <HiOutlineSearch
-            onClick={() => {
-              setShowSearchBar(!showSearchBar);
-              setShowMenu(false);
-            }}
-          />
+          <div>
+            <HiOutlineSearch
+              onClick={() => {
+                setShowSearchBar(!showSearchBar);
+                setShowMenu(false);
+              }}
+              className="pointer"
+            />
+          </div>
           <div className="header-menu-btn">
             {showMenu ? (
-              <VscChromeClose onClick={() => setShowMenu(!showMenu)} />
+              <VscChromeClose
+                onClick={() => setShowMenu(!showMenu)}
+                className="pointer"
+              />
             ) : (
               <SlMenu
                 onClick={() => {
                   setShowMenu(!showMenu);
                   setShowSearchBar(false);
                 }}
+                className="pointer"
               />
             )}
           </div>
@@ -87,7 +103,7 @@ const Header = () => {
                 // onKeyUp={handleEnterSearch}
               />
               <VscChromeClose
-                className="closeIcon"
+                className="closeIcon pointer"
                 onClick={() => {
                   setShowSearchBar(!showSearchBar);
                   setShowMenu(false);

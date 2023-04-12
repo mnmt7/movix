@@ -1,13 +1,10 @@
-* {
-    /* border: 1px solid red; */
-}
-
 .header {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.49);
+    padding: 0 1rem;
 }
 
 .dark-bg-color {
@@ -85,10 +82,6 @@
         padding: 1rem 1rem;
     }
 
-    .header-menu-item:hover {
-        color: #da2f68;
-    }
-
     .hide {
         /* animation: mobileMenuHide 0.3s ease forwards; */
         display: none;
@@ -125,3 +118,13 @@
         display: none;
     }
 } */
+
+.header-menu-item, .pointer {
+    cursor: pointer;
+}
+
+
+
+.header-menu-item:hover, .pointer:hover {
+    color: #da2f68;
+}
