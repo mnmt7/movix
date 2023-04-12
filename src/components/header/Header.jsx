@@ -37,7 +37,7 @@ const Header = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [scrollY]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -45,15 +45,15 @@ const Header = () => {
 
   return (
     <header className={"header" + (showHeader ? "" : " swipe-and-hide")}>
-      <div className="header-container">
+      <div className={"header-container" + (showMenu ? " dark-bg-color" : "")}>
         <img src={logo} alt="logo" onClick={() => navigate("/")} />
 
-        <div className="header-btns">
-          <ul className={"menu" + (showMenu ? "" : " hide")}>
-            <li className="menu-item" onClick={() => navigationHelper("movie")}>
+        <div className="header-btns non-mobile">
+          <ul className={"header-menu" + (showMenu ? "" : " hide")}>
+            <li className="header-menu-item" onClick={() => navigationHelper("movie")}>
               Movies
             </li>
-            <li className="menu-item" onClick={() => navigationHelper("tv")}>
+            <li className="header-menu-item" onClick={() => navigationHelper("tv")}>
               TV Shows
             </li>
           </ul>
@@ -63,7 +63,7 @@ const Header = () => {
               setShowMenu(false);
             }}
           />
-          <div className="menu-btn">
+          <div className="header-menu-btn">
             {showMenu ? (
               <VscChromeClose onClick={() => setShowMenu(!showMenu)} />
             ) : (
@@ -92,6 +92,7 @@ const Header = () => {
                   setShowSearchBar(!showSearchBar);
                   setShowMenu(false);
                 }}
+                color="black"
               />
             </div>
           )}

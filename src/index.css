@@ -19,7 +19,8 @@
 
 html {
   color-scheme: dark light;
-  /* background-color: black; */
+  background-color: #04152d;
+  color: white;
 }
 
 /* min body height */

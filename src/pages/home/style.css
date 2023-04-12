@@ -1,8 +1,14 @@
 .carousel-section {
     margin: 1rem 0;
 }
+
+.carousel-title {
+    font-size: 1.6rem;
+}
+
 .carousel-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0;
 }

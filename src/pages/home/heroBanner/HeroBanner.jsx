@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import "./style.css";
 import Img from "../../../components/lazyLoadImage/Img";
-
+import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 const HeroBanner = () => {
   const [background, setBackground] = useState("");
   const [search, setSearch] = useState("");
@@ -21,30 +21,35 @@ const HeroBanner = () => {
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * 20);
-    const bg = url.backdrop + data?.results?.[0]?.backdrop_path;
+    const bg = url.backdrop + data?.results?.[randomIndex]?.backdrop_path;
     setBackground(bg);
   }, [data]);
 
   return (
     <div className="hero-banner">
-      <Img src={background || ""} />
-      <div className="hero-content">
-        <span className="hero-welcome">Welcome.</span>
-        <span className="hero-description">
-          Millions of movies, TV shows to discover. Explore now.
-        </span>
-        <div className="hero-form">
-          <input
-            className="hero-input"
-            type="text"
-            placeholder="Search for a movie or tv show..."
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            onKeyUp={handleEnterSearch}
-          />
-          <button className="hero-btn">Search</button>
-        </div>
+      <div className="hero-img">
+        <Img src={background || ""} />
       </div>
+      <div className="hero-opacity-layer" />
+      <ContentWrapper>
+        <div className="hero-content">
+          <div className="hero-welcome">Welcome.</div>
+          <div className="hero-description">
+            Millions of movies, TV shows to discover. Explore now.
+          </div>
+          <div className="hero-form">
+            <input
+              className="hero-input"
+              type="text"
+              placeholder="Search for a movie or tv show..."
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              onKeyUp={handleEnterSearch}
+            />
+            <button className="hero-btn">Search</button>
+          </div>
+        </div>
+      </ContentWrapper>
     </div>
   );
 };

@@ -7,94 +7,111 @@
 }
 
 .hero-img {
+    opacity: 0.4;
+    width: 100%;
+ }
+
+.hero-img .lazy-load-image-background img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-img .lazy-load-image-background {
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .hero-img .lazy-load-image-background img {
+        height: 700px;
+    }
+}
+
+.hero-opacity-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(180deg,
+            rgba(4, 21, 45, 0) 0%,
+            #04152d 79.17%);
 }
 
 .hero-content {
-    /* position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0); */
-
     position: absolute;
     left: 0;
-    right: 0;
     top: 25%;
-    
+    width: 100%;
+
     color: white;
     text-align: center;
 }
 
+.hero-description {
+    font-size: 1.5rem;;
+}
+
 .hero-welcome {
-    font-size: 2.5rem;
-    display: block;
+    font-size: 3.8rem;
     font-weight: bold;
 
     /* border: 5px solid purple; */
 }
 
-.hero-description {
-    display: block;
-}
-
 .hero-form {
-    margin: 1rem 0;
+    margin: 1.6rem 0;
+    display: flex;
+    padding: 0 2rem;
 }
 
-.hero-input, .hero-btn {
-    padding: 0.4rem;
+.hero-input,
+.hero-btn {
+    padding: 1rem;
     border: none;
+    font-size: 1.15rem;
 }
 
 .hero-input {
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+}
+
+.hero-input:focus {
+    outline: none;
 }
 
 .hero-btn {
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
+    width: 150px;
+    margin-right: auto;
+    background: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);;
+    color: white;
 }
 
-@media (min-width: 600px) {    
-    .hero-content {    
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 40%;
-        
-        color: white;
-        text-align: center;
+@media (min-width: 600px) {
+    .hero-content {
+        top: 50%;
+        transform: translateY(-50%);
     }
-    
+
     .hero-welcome {
         font-size: 6rem;
-        display: block;
-        font-weight: bold;
     }
-    
+
     .hero-description {
-        display: block;
         font-size: 2rem;
     }
-    
-    .hero-form {
-        margin: 1rem 0;
-    }
-    
-    .hero-input, .hero-btn {
-        padding: 0.5rem;
-        border: none;
+
+    .hero-input,
+    .hero-btn {
         font-size: 1.5rem;
         padding-left: 2rem;
         padding-right: 2rem;
-    }
-    
-    .hero-input {
-        border-top-left-radius: 100px;
-        border-bottom-left-radius: 100px;
-    }
-    
-    .hero-btn {
-        border-top-right-radius: 100px;
-        border-bottom-right-radius: 100px;
     }
 }
