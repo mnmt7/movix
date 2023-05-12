@@ -19,6 +19,7 @@ const HeroBanner = () => {
 
   const data = useFetch("/movie/upcoming");
 
+  // sets a random background image from the list of upcoming movies
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * 20);
     const bg = url.backdrop + data?.results?.[randomIndex]?.backdrop_path;
