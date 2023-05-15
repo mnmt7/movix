@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchDataFromApi } from "./utils.js/api";
+import { fetchDataFromApi } from "./utils/api";
 
 import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import Home from "./pages/home/Home";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Details from "./pages/details/Details";
+import Explore from "./pages/explore/Explore";
 
 function App() {
   const url = useSelector((state) => state.home.url);
@@ -56,6 +57,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search/:query" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
+        <Route path="/explore/:mediaType" element={<Explore />} />
       </Routes>
       <Footer />
     </BrowserRouter>
